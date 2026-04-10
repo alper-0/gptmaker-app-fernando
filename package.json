@@ -1,0 +1,26 @@
+{
+  "name": "gptmaker-app-fernando",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/alper-0/gptmaker-app-fernando#readme",
+  "bugs": {
+    "url": "https://github.com/alper-0/gptmaker-app-fernando/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alper-0/gptmaker-app-fernando.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --env-file=.env server.js",
+    "dev": "node --watch --env-file=.env server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}
