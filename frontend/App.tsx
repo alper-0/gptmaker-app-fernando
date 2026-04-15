@@ -5,13 +5,13 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
-  SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 interface ChatMessage {
   id: string;
@@ -196,7 +196,7 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <SafeAreaView style={styles.safe} edges={["top","bottom"]}>
       <KeyboardAvoidingView 
         style={styles.container}
         behavior={Platform.OS ==="ios" ? "padding": "height"}>
@@ -206,8 +206,8 @@ export default function App() {
           <Text style={styles.headerSubtitle}>Assistente Virtual</Text>
         </View>
         {/* Lista de mensagens */}
-        <FlatList
-          ref={flatListRef as React.RefObject<FlatList<ChatMessage>>}
+        <FlatList 
+          ref={flatListRef}
           data={messages}
           keyExtractor={(item) => item.id}
           renderItem={renderItem}
@@ -241,4 +241,7 @@ export default function App() {
       </KeyboardAvoidingView>
     </SafeAreaView>
 
-  )};
+  );
+
+
+}
