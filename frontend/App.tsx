@@ -1,81 +1,13 @@
-import React, { useState, useRef } from "react";
-import {
-  ActivityIndicator,
-  FlatList,
-  Keyboard,
-  KeyboardAvoidingView,
-  Platform,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import React, { useRef, useState } from "react";
+import { ActivityIndicator, FlatList, Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-interface ChatMessage {
+type ChatMessage = {
   id: string;
   role: "user" | "assistant";
   text: string;
-}
+};
 
-const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: "#f5f5f5" },
-  container: { flex: 1 },
-  header: {
-    backgroundColor: "#1a1a2e",
-    padding: 16,
-    alignItems: "center",
-  },
-  headerTitle: { color: "#fff", fontSize: 20, fontWeight: "bold" },
-  headerSubtitle: { color: "#aaa", fontSize: 13, marginTop: 2 },
-  listContent: { padding: 12 },
-  messageContainer: {
-    marginVertical: 4,
-    maxWidth: "80%",
-    padding: 10,
-    borderRadius: 12,
-  },
-  userMessageContainer: { alignSelf: "flex-end", backgroundColor: "#1a1a2e" },
-  assistantMessageContainer: { alignSelf: "flex-start", backgroundColor: "#e0e0e0" },
-  messageText: { fontSize: 15, color: "#333" },
-  userMessageText: { color: "#fff" },
-  loadingBox: {
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 8,
-    gap: 8,
-  },
-  inputArea: {
-    flexDirection: "row",
-    padding: 8,
-    backgroundColor: "#fff",
-    borderTopWidth: 1,
-    borderTopColor: "#ddd",
-    alignItems: "flex-end",
-  },
-  input: {
-    flex: 1,
-    minHeight: 40,
-    maxHeight: 120,
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 20,
-    paddingHorizontal: 14,
-    paddingVertical: 8,
-    fontSize: 15,
-    backgroundColor: "#fafafa",
-  },
-  sendButton: {
-    marginLeft: 8,
-    backgroundColor: "#1a1a2e",
-    borderRadius: 20,
-    paddingHorizontal: 18,
-    paddingVertical: 10,
-    justifyContent: "center",
-  },
-  sendButtonText: { color: "#fff", fontWeight: "bold" },
-});
 
 export default function App() {
   const [input, setInput] = useState("");
@@ -107,7 +39,7 @@ export default function App() {
     setLoading(true);
     const apiURL =
       Platform.OS === "android"
-      ? "http://10.244.134.77:3000"
+      ? "http://10.53.54.24:3000"
       : "http://127.0.0.1:3000";
     
     try {
@@ -195,6 +127,7 @@ export default function App() {
     )
   }
 
+
   return (
     <SafeAreaView style={styles.safe} edges={["top","bottom"]}>
       <KeyboardAvoidingView 
@@ -241,7 +174,185 @@ export default function App() {
       </KeyboardAvoidingView>
     </SafeAreaView>
 
-  );
+  );}
 
+  const styles = StyleSheet.create({
 
-}
+  safe: {
+
+    flex: 1,
+
+    backgroundColor: "#111827",
+
+  },
+
+  container: {
+
+    flex: 1,
+
+  },
+
+  header: {
+
+    paddingHorizontal: 16,
+
+    paddingTop: 18,
+
+    paddingBottom: 12,
+
+    borderBottomWidth: 1,
+
+    borderBottomColor: "#1f2937",
+
+  },
+
+  headerTitle: {
+
+    color: "#fff",
+
+    fontSize: 22,
+
+    fontWeight: "700",
+
+  },
+
+  headerSubtitle: {
+
+    color: "#9ca3af",
+
+    fontSize: 14,
+
+    marginTop: 4,
+
+  },
+
+  listContent: {
+
+    padding: 16,
+
+    gap: 12,
+
+  },
+
+  messageContainer: {
+
+    maxWidth: "85%",
+
+    padding: 12,
+
+    borderRadius: 14,
+
+  },
+
+  userMessageContainer: {
+
+    alignSelf: "flex-end",
+
+    backgroundColor: "#2563eb",
+
+  },
+
+  assistantMessageContainer: {
+
+    alignSelf: "flex-start",
+
+    backgroundColor: "#1f2937",
+
+  },
+
+  messageText: {
+
+    color: "#fff",
+
+    fontSize: 15,
+
+    lineHeight: 22,
+
+  },
+
+  userMessageText: {
+
+    color: "#fff",
+
+  },
+
+  loadingBox: {
+
+    flexDirection: "row",
+
+    alignItems: "center",
+
+    gap: 8,
+
+    paddingHorizontal: 16,
+
+    paddingBottom: 8,
+
+  },
+
+  loadingText: {
+
+    color: "#d1d5db",
+
+  },
+
+  inputArea: {
+
+    flexDirection: "row",
+
+    alignItems: "flex-end",
+
+    padding: 12,
+
+    borderTopWidth: 1,
+
+    borderTopColor: "#1f2937",
+
+    backgroundColor: "#111827",
+
+    gap: 8,
+
+  },
+
+  input: {
+
+    flex: 1,
+
+    minHeight: 48,
+
+    maxHeight: 120,
+
+    backgroundColor: "#fff",
+
+    borderRadius: 12,
+
+    paddingHorizontal: 12,
+
+    paddingVertical: 10,
+
+    fontSize: 15,
+
+  },
+
+  sendButton: {
+
+    backgroundColor: "#22c55e",
+
+    paddingHorizontal: 16,
+
+    paddingVertical: 14,
+
+    borderRadius: 12,
+
+  },
+
+  sendButtonText: {
+
+    color: "#111827",
+
+    fontWeight: "700",
+
+  },
+
+});
+
